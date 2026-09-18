@@ -50,6 +50,32 @@
         margin-top: -10px;
         margin-bottom: 20px;
       }
+      .experience-list {
+        display: grid;
+        gap: 18px;
+      }
+      .experience-item {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 16px;
+        align-items: center;
+      }
+      .experience-logo {
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+      }
+      .experience-title {
+        font-weight: bold;
+        font-size: 1.05em;
+      }
+      .experience-meta {
+        color: #555;
+      }
+      .experience-date {
+        color: #888;
+        font-size: 0.95em;
+      }
       b {
         color: #000;
       }
@@ -76,6 +102,37 @@
       frameworks that maintain both spatial-temporal consistency and logical
       integrity in complex inference tasks.
     </p>
+
+    <h2>Experience</h2>
+    <div class="experience-list">
+      <div class="experience-item">
+        <img
+          class="experience-logo"
+          src="assets/zju-seal.jpg"
+          alt="Zhejiang University logo"
+        />
+        <div>
+          <div class="experience-title">Zhejiang University</div>
+          <div class="experience-meta">B.S. in Computer Science</div>
+          <div class="experience-date">Sep. 2023 - Present</div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <img
+          class="experience-logo"
+          src="assets/uiuc-block-i.svg"
+          alt="University of Illinois Urbana-Champaign logo"
+        />
+        <div>
+          <div class="experience-title">
+            University of Illinois Urbana-Champaign
+          </div>
+          <div class="experience-meta">Research Intern</div>
+          <div class="experience-date">May 2026 - Present</div>
+        </div>
+      </div>
+    </div>
 
     <h2>Publications</h2>
     <p class="contribution-note">* indicates equal contribution.</p>
