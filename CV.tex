@@ -1,0 +1,346 @@
+\documentclass[11pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1.4 cm,
+    bottom=1.4 cm,
+    left=1.4 cm,
+    right=1.4 cm,
+    footskip=0.6 cm
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Tianjian Feng's CV},
+    pdfauthor={Tianjian Feng},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage{xcolor}
+
+% Ensure that generated PDF is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\pagenumbering{gobble}
+
+\titleformat{\section}
+{\needspace{4\baselineskip}\bfseries\normalsize}
+{}{0pt}{}
+[\vspace{0pt}\titlerule]
+
+\titlespacing{\section}{
+    -2pt
+}{
+    0.05 cm
+}{
+    0.05 cm
+}
+
+\renewcommand\labelitemi{\textbullet}
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0 cm,
+        parsep=0 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        label=\vcenter{\hbox{\textbullet}},
+        topsep=0cm,
+        parsep=0cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0cm + 10pt,
+        font=\normalsize
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}
+    \par\kern\topsep
+    \centering
+    \linespread{0.95}
+}{
+    \par\kern\topsep
+}
+
+\let\hrefWithoutArrow\href
+
+\usepackage{setspace}
+\setstretch{1.15}
+
+\begin{document}
+
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{17 pt}{18 pt}\selectfont \textbf{Tianjian Feng}
+
+        \normalsize
+        \kern 3.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:tianjian@illinois.edu}{tianjian@illinois.edu}}%
+        \kern 3.0 pt%
+        \AND%
+        \kern 3.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+12172550587}{+1 (217) 255-0587}}%
+
+        \vspace{2 pt}
+
+        \textit{J-1 Student Intern / Visiting Undergraduate Researcher,
+        University of Illinois Urbana-Champaign}
+    \end{header}
+
+
+    \section{Education}
+
+    \begin{twocolentry}{
+        \makebox[5cm][r]{\textit{May 2026 -- Present}}
+    }
+        \textbf{University of Illinois Urbana-Champaign}, USA
+    \end{twocolentry}
+
+    \begin{onecolentry}
+        J-1 Student Intern / Visiting Undergraduate Researcher,
+        Siebel School of Computing and Data Science
+    \end{onecolentry}
+
+    \vspace{0.15 cm}
+
+    \begin{twocolentry}{
+        \makebox[5cm][r]{\textit{Sep. 2023 -- June 2027 (expected)}}
+    }
+        \textbf{Zhejiang University}, China
+    \end{twocolentry}
+
+    \begin{onecolentry}
+        Bachelor of Computer Science;
+        Cumulative GPA: 4.09/4.3 (Top 25\%)
+    \end{onecolentry}
+
+    \vspace{0.15 cm}
+
+
+    \section{Research Interests}
+
+    \vspace{0.1cm}
+
+    My research focuses on scaling and optimizing generative foundation models across modalities.
+    I am particularly interested in the intersection of structured reasoning and generative modeling,
+    including efficient decoding, test-time scaling, physically consistent video generation,
+    and latent representation learning.
+    My goal is to develop robust, high-fidelity generative frameworks that maintain
+    spatial-temporal consistency and logical integrity in complex inference tasks.
+
+
+    \section{Publications and Pre-prints}
+
+    \begin{onecolentry}
+    \begin{highlights}
+
+    \item
+    \textit{(EMNLP 2026)}
+    Y. Shen$^*$, \textbf{T. Feng}$^*$, J. Han, W. Wang, T. Chen,
+    C. Shen, J. Leskovec, and S. Ermon. (2026).
+    Improving Diffusion Language Model Decoding through Joint Search in
+    Generation Order and Token Space.
+    \href{https://arxiv.org/abs/2601.20339}
+    {\textcolor{NavyBlue}{[paper]}}
+    \textit{* Equal contribution.}
+
+    \item
+    \label{pub:Tinker}
+    \textit{(ICLR 2026)}
+    C. Zhao, X. Li, \textbf{T. Feng}, Z. Zhao, H. Chen, and C. Shen. (2026).
+    TINKER: Diffusion's Gift to 3D--Multi-View Consistent Editing From Sparse
+    Inputs without Per-Scene Optimization.
+    \href{https://arxiv.org/abs/2508.14811}
+    {\textcolor{NavyBlue}{[paper]}}
+    \href{https://aim-uofa.github.io/Tinker/}
+    {\textcolor{NavyBlue}{[project]}}
+
+    \item
+    \textit{(ACL 2026)}
+    L. Zhong$^*$, L. Wu$^*$, B. Fang, \textbf{T. Feng}, C. Jing,
+    W. Wang, J. Zhang, H. Chen, and C. Shen. (2026).
+    Beyond Hard Masks: Progressive Token Evolution for Diffusion Language Models.
+    \href{https://arxiv.org/abs/2601.07351}
+    {\textcolor{NavyBlue}{[paper]}}
+    \href{https://aim-uofa.github.io/EvoTokenDLM/}
+    {\textcolor{NavyBlue}{[project]}}
+
+    \item
+    \textit{(ECCV 2026)}
+    L. Li, W. Wang, C. Zhao, \textbf{T. Feng}, Z. Zhao, H. Chen, and C. Shen.
+    (2026).
+    MMControl: Unified Multi-Modal Control for Joint Audio-Video Generation.
+    \href{https://arxiv.org/abs/2604.19679v2}
+    {\textcolor{NavyBlue}{[paper]}}
+    \href{https://aim-uofa.github.io/MMControl/}
+    {\textcolor{NavyBlue}{[project]}}
+    \href{https://github.com/aim-uofa/MMControl}
+    {\textcolor{NavyBlue}{[code]}}
+
+    \end{highlights}
+    \end{onecolentry}
+
+
+    \section{Research Experiences}
+
+        \begin{onecolentry}
+            \textbf{University of Illinois Urbana-Champaign} \hfill May 2026 -- Present \\
+            \textit{Research Intern (Advisor: Prof. Yuxiong Wang)}
+
+            \begin{highlights}
+
+                \item \textbf{Physics-Aware Video Continuation} -- Ongoing
+                \begin{itemize}
+                    \item Developing a prefix-conditioned video continuation pipeline
+                    to study how structured predictions of scene dynamics can guide
+                    future-frame generation.
+
+                    \item Implementing teacher-supervised fine-tuning of a
+                    vision-language reasoner using full-window video annotations,
+                    while restricting its inputs to observed prefixes and
+                    prefix-derived captions.
+
+                    \item Conducting controlled experiments to distinguish errors in
+                    prefix perception, future-event prediction, and video synthesis,
+                    using matched generation settings and event-level evaluation.
+                \end{itemize}
+
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.15 cm}
+
+        \begin{onecolentry}
+            \textbf{State Key Lab of CAD \& CG, Zhejiang University}
+            \hfill 2024 -- Present \\
+
+            \textit{Undergraduate Researcher
+            (Advisor: Prof. Chunhua Shen, Research Prof. Hao Chen)}
+
+            \begin{highlights}
+
+                \item \textbf{Efficient Decoding for Diffusion Language Models (DLM)}
+                \begin{itemize}
+                    \item \textbf{Spearheaded the technical implementation}
+                    of the Order-Token Search algorithm and its core likelihood estimator,
+                    ensuring efficient pruning and stable exploration across diverse
+                    decoding trajectories.
+                \end{itemize}
+
+                \item \textbf{High-Fidelity 3D Content Generation and Editing}
+                \begin{itemize}
+                    \item Contributed to \textbf{TINKER}, a generalizable 3D editing
+                    framework that achieves state-of-the-art performance without
+                    per-scene optimization \textit{(ICLR 2026)}.
+
+                    \item Conducted \textbf{extensive benchmarking} to evaluate the
+                    framework's performance in one-shot and few-shot regimes,
+                    providing critical experimental evidence for model validation.
+                \end{itemize}
+
+            \end{highlights}
+        \end{onecolentry}
+
+
+    \section{Skills}
+
+        \begin{onecolentry}
+            \textbf{Programming:} Python, C++, Java, Verilog, Shell, \LaTeX; \\
+            \textbf{Frameworks:} PyTorch, Verl.
+        \end{onecolentry}
+
+
+    \section{Honors \& Awards}
+
+        \begin{onecolentry}
+            \textbf{Zhejiang University Academic Excellence Scholarship}
+            \hfill 2024, 2025 \\
+
+            \textit{Awarded to the top 20\% of students for outstanding
+            academic and research performance.}
+        \end{onecolentry}
+
+\end{document}
